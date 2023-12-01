@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+<body>
+
+    <h1>This is a heading</h1>
+    <p>This is from First_app.</p>
+    <h2>Author : {{author}}</h2>
+    <h2>Age : {{age}}</h2>
+    <h2>list : {{lst}}</h2>
+
+    {% comment %} conditional statement {% endcomment %}
+    {% if age >= 20 %}
+        <p>You will get a driving licsence</p>
+    {% elif age > 10 and age < 20 %}
+        <p>You will not get a driving licsence</p>
+    {%else%}
+        <p>You are a child</p>
+    {% endif %}
+
+    {% for i in courses %}
+        <h3>{{i.course}} {{i.fee}}</h3>
+    {% endfor %}
+
+    <h4>{{ lst | join:" - " }}</h4>
+    <h4>{{birthday | date:"SHORT_DATE_FORMAT"}}</h4>
+    <h4>{{20 | add:"5"}}</h4>
+    <h4>{{author | capfirst}}</h4>
+    <h4>{{"January - February - March" | cut:"-"}}</h4>
+    <ul>
+        {% for course in courses|dictsort:"fee" %}
+            <li>
+                Course ID: {{ course.id }}, Course Name: {{ course.course }}, Fee: {{ course.fee }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h4>{{lst | first}}</h4>
+    <h4>{{lst | last}}</h4>
+    <h4>{{"" | length}}</h4>
+    <h4>{{"""
+        This is a
+        multiline
+        string
+        in Django templates.
+        """ | linenumbers }}</h4>
+    <h4>{{'I Am Master Yoda' | lower}}</h4>
+    <h4>{{'I am master yoda' | title}}</h4>
+    <h4>{{lst | random}}</h4>
+    <h4>{{lst | slice:":1"}}</h4>
+    <h4>{{birthday | time:"H:i"}}</h4>
+    <h4>{{'Happy coding' | truncatechars:8}}</h4>
+    <h4>{{'You can do a lot of modifications with template filters' | wordcount}}</h4>
+    <h4>{{'Earthly' | make_list}}</h4>
+     
+</body>
+</html> 
